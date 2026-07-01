@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Priority Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="app-title">
+        <p class="eyebrow">Daily focus assistant</p>
+        <h1 id="app-title">Turn voice notes into a prioritized to-do list.</h1>
+        <p class="lede">
+          Record a quick brain dump, review the transcript, and let the app split your day into tasks ranked by priority.
+        </p>
+      </section>
+
+      <section class="panel recorder" aria-labelledby="recorder-title">
+        <div>
+          <h2 id="recorder-title">1. Capture your voice note</h2>
+          <p>Use speech recognition in your browser, or type/paste your notes manually.</p>
+        </div>
+        <div class="recorder-actions">
+          <button id="recordButton" class="primary" type="button">Start recording</button>
+          <button id="clearButton" class="secondary" type="button">Clear note</button>
+        </div>
+        <p id="recordingStatus" class="status" role="status">Ready when you are.</p>
+        <textarea id="noteInput" rows="8" placeholder="Example: Finish the client report by noon, call Maya, pick up groceries, and schedule the dentist..."></textarea>
+      </section>
+
+      <section class="panel" aria-labelledby="planner-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="planner-title">2. Build your daily plan</h2>
+            <p>Tasks with urgent language, deadlines, or important verbs are ranked higher.</p>
+          </div>
+          <button id="generateButton" class="primary" type="button">Generate prioritized tasks</button>
+        </div>
+        <ol id="taskList" class="task-list" aria-live="polite"></ol>
+        <p id="emptyState" class="empty-state">Your prioritized to-do list will appear here.</p>
+      </section>
+    </main>
+
+    <template id="taskTemplate">
+      <li class="task-card">
+        <div class="priority-badge"></div>
+        <div>
+          <h3></h3>
+          <p></p>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
